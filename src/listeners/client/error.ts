@@ -7,10 +7,10 @@ import { errorlogid } from '../../Config';
 
 export default class Error extends Listener {
     public constructor() {
-        super("cmderror", {
-            emitter: "cmdHandler",
+        super("clienterror", {
+            emitter: "client",
             event: "error",
-            category: "command"
+            category: "client"
         })
     }
 
@@ -22,7 +22,7 @@ export default class Error extends Listener {
         .addField("Ran By:", `- ${message.author.tag}\n- ${message.author}\n- ${message.author.id}`)
         .addField("Ran in:", `${message.guild || 'dms(atleast not in server)'}`)
         .addField("Command:", command)
-        .addField("Type:", "Command Handler (command side) error")
+        .addField("Type:", "Client (client side) error")
         const errchannel = message.client.channels.cache.get(errorlogid) as TextChannel
         return errchannel.send(embed)
     }

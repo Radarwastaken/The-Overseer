@@ -12,5 +12,6 @@ dist
 logs
 
 # just me being stupid and doing stuff
+testing.js
 testing.ts
 cache
