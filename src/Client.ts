@@ -34,6 +34,7 @@ export default class Client extends AkairoClient {
         argumentDefaults: {
             prompt: {
                 modifyStart: (_: Message, str: string): string => `${str}\n\nType \`stop\` to stop the command`,
+                retry: `Try again...`,
                 timeout: `Alright then Ignore me even i don't have enough free time to keep waiting for you`,
                 ended: `You have exceeded the maximum amount of retries...`,
                 cancel: `Alright then Stopped the command`,

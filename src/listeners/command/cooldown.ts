@@ -3,12 +3,12 @@ import { Message } from 'discord.js';
 import { Listener, Command } from 'discord-akairo'
 import { MessageEmbed } from 'discord.js';
 
-export default class Ready extends Listener {
+export default class Cooldown extends Listener {
     public constructor() {
         super("cooldown", {
             emitter: "cmdHandler",
             event: "cooldown",
-            category: "cmdHandler"
+            category: "command"
         })
     }
 
