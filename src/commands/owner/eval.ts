@@ -26,12 +26,17 @@ export default class Ping extends Command{
                         if (str && ["ts", "js"].includes(str)) return str;
                         else return null;
                     },
-                    match: "option",
-                    default: "js"
+                    default: "js",
+                    prompt: {
+                        start: "What should i evaluate?(you have 45 seconds)",
+                        retry: "Try again..",
+                        timeout: 4.5e4
+                    }
                 },
                 {
                     id: "code",
-                    type: "content"
+                    type: "content",
+                    match: "option"
                 }
             ]
         })
@@ -40,8 +45,8 @@ export default class Ping extends Command{
     public exec(message: Message, { typeofcode, code }: { typeofcode: string , code: string}): Promise<Message> {
 
         const embed = new MessageEmbed()
-        .setDescription(`\`\`\`${typeofcode}\n${eval(code)}\`\`\``)
+        .setDescription(`\`\`\`${typeofcode || ""}\n${eval(code)}\`\`\``)
         return message.channel.send(embed)
-        
+
     }
 }
