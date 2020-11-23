@@ -9,6 +9,7 @@ export default class Ping extends Command{
             aliases: ["ping"],
             editable: false,
             typing: true,
+            category: "misc",
             clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
             description: {
                 content: "Check the API Latency of the bot",
