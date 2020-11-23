@@ -1,0 +1,16 @@
+# keys
+Config.ts
+
+# stupid node js stuff
+node_modules
+package-lock.json
+
+# the folder where ts compiles all stuff
+dist
+
+# Logs
+logs
+
+# just me being stupid and doing stuff
+testing.ts
+cache
