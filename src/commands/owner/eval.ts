@@ -21,21 +21,26 @@ export default class Ping extends Command{
             ownerOnly: true,
             args: [
                 {
-                    id: "typeofcode",
-                    type: (_: Message, str: string): null | string => {
-                        if (str && ["ts", "js"].includes(str)) return str;
-                        else return null;
-                    },
-                    default: "js",
+                    id: "code",
+                    type: "content",
                     prompt: {
                         start: "What should i evaluate?(you have 45 seconds)",
-                        retry: "Try again..",
-                        timeout: 4.5e4
+                        retry: "Try again...",
+                        time: 4.5e4
                     }
                 },
                 {
-                    id: "code",
-                    type: "content",
+                    id: "typeofcode",
+                    type: (_: Message, str: string): null | string => {
+                        if (str){
+                            if (["ts", "js"].includes(str)) {
+                                return str;
+                            }
+                            else return null;
+                        }
+                        else return null;
+                    },
+                    default: "js",
                     match: "option"
                 }
             ]

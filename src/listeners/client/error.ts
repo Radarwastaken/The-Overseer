@@ -14,15 +14,16 @@ export default class Error extends Listener {
         })
     }
 
-    public exec(error: Error, message: Message, command: Command): Promise<Message> {
+    public exec(error, message: Message, command: Command): Promise<Message> {
         const embed = new MessageEmbed()
         .setAuthor(`Error:`)
-        .setDescription(`\`\`\`ts\n${error}\`\`\``)
-        .addField("Message:", `${message}`)
-        .addField("Ran By:", `- ${message.author.tag}\n- ${message.author}\n- ${message.author.id}`)
-        .addField("Ran in:", `${message.guild || 'dms(atleast not in server)'}`)
-        .addField("Command:", command)
-        .addField("Type:", "Client (client side) error")
+        .setDescription(`\`\`\`cmd\n${error}\n\n\n${error.stack}\`\`\``)
+        .addField("Message:", `**${message}**`, true)
+        .addField("Ran By:", `- ${message.author.tag}\n- ${message.author}\n- ${message.author.id}`, true)
+        .addField("Ran in:", `- ${message.guild || 'dms(atleast not in server)'}\n- ${message.guild.id || 'N/A'}`, true)
+        .addField("Command:", command, true)
+        .addField("Type:", "Client (client side) error", true)
+        .addField(`\u200b`, `\u200b`, true)
         const errchannel = message.client.channels.cache.get(errorlogid) as TextChannel
         return errchannel.send(embed)
     }
