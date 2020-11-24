@@ -15,10 +15,15 @@ export default class Error extends Listener {
     }
 
     public exec(error, message: Message, command: Command): Promise<Message> {
+
+        const token = this.client.token.split('').join('[^]{0,2}');
+        const rev = this.client.token.split('').reverse().join('[^]{0,2}');
+        const tokenRegex = new RegExp(`${token}|${rev}`, 'g');
+
         const embed = new MessageEmbed()
         .setAuthor(`Error:`)
-        .setDescription(`\`\`\`cmd\n${error}\n\n\n${error.stack}\`\`\``)
-        .addField("Message:", `${message}`, true)
+        .setDescription(`\`\`\`ts\n${error.toString().replace(tokenRegex, " - TOKEN - ")}\n\n\n${error.stack.toString().replace(tokenRegex, " - TOKEN - ")}\`\`\``)
+        .addField("Message Content:", `${message.content.replace(tokenRegex, "**TOKEN**")}`, true)
         .addField("Ran By:", `- ${message.author.tag}\n- ${message.author}\n- ${message.author.id}`, true)
         .addField("Ran in:", `- ${message.guild || 'dms(atleast not in server)'}\n- ${message.guild.id || 'N/A'}`, true)
         .addField("Command:", command, true)
