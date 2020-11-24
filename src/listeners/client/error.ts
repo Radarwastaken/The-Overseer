@@ -3,7 +3,7 @@ import { Message, TextChannel } from 'discord.js';
 import { Listener, Command } from 'discord-akairo'
 import { MessageEmbed } from 'discord.js';
 import '../../Config'
-import { errorlogid } from '../../Config';
+import { errorlogid, ownerIDs } from '../../Config';
 
 export default class Error extends Listener {
     public constructor() {
@@ -20,6 +20,10 @@ export default class Error extends Listener {
         const rev = this.client.token.split('').reverse().join('[^]{0,2}');
         const tokenRegex = new RegExp(`${token}|${rev}`, 'g');
 
+        const embedtoo = new MessageEmbed()
+        .setDescription(`There is an Error with that command`)
+        .setFooter(`Report that to ${message.client.users.cache.get(ownerIDs[0]).username}`)
+
         const embed = new MessageEmbed()
         .setAuthor(`Error:`)
         .setDescription(`\`\`\`ts\n${error.toString().replace(tokenRegex, "TOKEN")}\n\n\n${error.stack.toString().replace(tokenRegex, "TOKEN")}\`\`\``)
@@ -30,6 +34,8 @@ export default class Error extends Listener {
         .addField("Type:", "Client (client side) error", true)
         .addField(`\u200b`, `\u200b`, true)
         const errchannel = message.client.channels.cache.get(errorlogid) as TextChannel
+
+        message.channel.send(embedtoo)
         return errchannel.send(embed)
     }
 }
