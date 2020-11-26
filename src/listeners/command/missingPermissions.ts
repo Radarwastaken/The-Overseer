@@ -20,13 +20,13 @@ export default class Cooldown extends Listener {
         if (type === 'client') {
         const embed = new MessageEmbed()
         .setAuthor(`Missing Permssions`)
-        .setDescription(`${message.author} I need the \`${perm.map((p: string) => `${p} `)}\` Permission(s) to run the ${command} Command`)
+        .setDescription(`${message.author} I need the \`${(perm.map((p: string) => ` ${p}`)).toString().slice(1)}\` Permission(s) to run the ${command} Command`)
         return message.channel.send(embed)
         }
         else if (type === 'user') {
             const embedtoo = new MessageEmbed()
             .setAuthor(`Missing Permissions`)
-            .setDescription(`${message.author} You need the \`${perm.map((p: string) => ` ${p}`)}\` Permission to run the ${command} Command`)
+            .setDescription(`${message.author} You need the \`${(perm.map((p: string) => ` ${p}`)).toString().slice(1)}\` Permission to run the ${command} Command`)
             return message.channel.send(embedtoo)
         }
         else {
