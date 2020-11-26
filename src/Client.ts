@@ -2,7 +2,7 @@ import 'discord-akairo';
 import { ListenerHandler } from 'discord-akairo';
 import { CommandHandler } from 'discord-akairo';
 import { AkairoClient } from 'discord-akairo';
-import { ownerIDs, prefix, token } from './Config'
+import { ownerIDs, prefix } from './Config'
 import { Message } from 'discord.js'
 
 declare module 'discord-akairo' {
@@ -31,6 +31,7 @@ export default class Client extends AkairoClient {
         allowMention: true,
         blockBots: true,
         blockClient: true,
+        commandUtil: true,
         argumentDefaults: {
             prompt: {
                 modifyStart: (_: Message, str: string): string => `${str}\n\nType \`stop\` to stop the command`,

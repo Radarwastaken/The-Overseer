@@ -3,7 +3,7 @@ import 'discord.js'
 import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
 
-export default class Ping extends Command{
+export default class Eval extends Command{
     public constructor() {
         super("eval", {
             aliases: ["eval"],
@@ -13,9 +13,9 @@ export default class Ping extends Command{
             clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
             description: {
                 content: "Evaluate some piece of ~~shit~~ code",
-                usage: "eval < code >",
+                usage: "< code >",
                 examples: [
-                    "eval message.author"
+                    "message.author"
                 ]
             },
             ownerOnly: true,
@@ -33,7 +33,7 @@ export default class Ping extends Command{
         })
     }
 
-    public exec(message: Message, { code }: { code: string }): Promise<Message> {
+    public async exec(message: Message, { code }: { code: string }): Promise<Message> {
 
         return message.channel.send(`\`\`\`ts\n${eval(code)}\`\`\``)
         

@@ -3,9 +3,8 @@ import 'discord.js'
 import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
 import { User } from 'discord.js'
-import { resolve } from 'path'
 
-export default class Ping extends Command{
+export default class DM extends Command{
     public constructor() {
         super("dm", {
             aliases: ["dm"],
@@ -15,9 +14,9 @@ export default class Ping extends Command{
             clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
             description: {
                 content: "Send DM to a user..",
-                usage: "dm < user > < message >",
+                usage: "< user > < message >",
                 examples: [
-                    "dm 767992139850055702 Hi"
+                    "767992139850055702 Hi"
                 ]
             },
             ownerOnly: true,
@@ -53,11 +52,11 @@ export default class Ping extends Command{
                 time: 4.5e4,
                 errors: [ "time" ]
             })
-            .then(collection => ["y", "yes"].includes(collection.first().content.toLowerCase()) ? resolve(true) : resolve(false))
+            .then(collection => ["y", "yes"].includes(collection.first()?.cleanContent?.toLowerCase() ?? "") ? resolve(true) : resolve(false))
             .catch(() => resolve(false))
         })
         if (await confirmation) {
-        await message.client.users.cache.get(user.id).send(msg)
+        await message.client.users.cache.get(user.id)?.send(msg)
         return message.channel.send("Done👍🏻")
         }
         else {
