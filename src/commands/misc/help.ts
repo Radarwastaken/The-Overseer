@@ -15,7 +15,7 @@ export default class Help extends Command{
             clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
             description: {
                 content: "Get Help on the bot",
-                usage: "[ command  or category ]",
+                usage: "[ command ]",
                 examples: [
                     "ping"
                 ]

@@ -11,7 +11,6 @@ export default class Draw extends Command{
             editable: false,
             typing: true,
             category: "fun",
-            userPermissions: ["ADMINISTRATOR", "USE_VAD"],
             clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
             description: {
                 content: "Draw a Random card from a deck",
