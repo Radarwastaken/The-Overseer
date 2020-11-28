@@ -13,8 +13,7 @@ export default class Ping extends Command{
             clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
             description: {
                 content: "Check the API Latency of the bot"
-            },
-            cooldown: 100000
+            }
         })
     }
 

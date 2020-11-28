@@ -33,7 +33,6 @@ export default class DM extends Command{
                 },
                 {
                     id: "msg",
-                    match: "content",
                     prompt: {
                         start: "What should the message be?",
                         retry: "Try again...",

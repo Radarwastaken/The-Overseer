@@ -102,7 +102,7 @@ export default class Help extends Command{
             const embed = new MessageEmbed()
 			.setColor("#000000")
             .setTitle(title)
-            .addField('❯ Category', cmd.category || '\u200b')
+            .addField('❯ Category', fn.Capitalize(cmd.category.id) || '\u200b')
 			.addField('❯ Description', cmd.description.content || '\u200b')
             .setFooter(`The values within < > are neccessary\nThe values within [ ] are optional`)
             .setThumbnail(message.client.user!.displayAvatarURL({
@@ -165,7 +165,7 @@ export default class Help extends Command{
                 const embed = new MessageEmbed()
                 .setColor("#000000")
                 .setTitle(title)
-                .addField('❯ Category', cmd.category || '\u200b')
+                .addField('❯ Category', fn.Capitalize(cmd.category.id) || '\u200b')
                 .addField('❯ Description', cmd.description.content || '\u200b')
                 .setFooter(`The values within < > are neccessary\nThe values within [ ] are optional`)
                 .setThumbnail(message.client.user!.displayAvatarURL({
