@@ -10,6 +10,8 @@ export default class Exec extends Command{
             editable: false,
             typing: true,
             category: "owner",
+            userPermissions: ["ADMINISTRATOR"], //Doesn't really matter because as this is owner only command
+                                                //and owner perms check are ignored, i can use this as a test command
             clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
             description: {
                 content: "Execute Stuff to the terminal",
@@ -60,8 +62,7 @@ export default class Exec extends Command{
             }
           }
           if (e) {
-              console.log(e)
-              message.channel.send(`${e}`)
+            console.log(e)
           }
           })
         }

@@ -30,7 +30,7 @@ export default class cmdError extends Listener {
         .addField("Message Content:", `${message.content.replace(tokenRegex, "**TOKEN**")}`)
         .addField("Ran By:", `- ${message.author.tag}\n- ${message.author}\n- ${message.author.id}`, true)
         .addField("Ran in:", `- ${message.guild || 'dms(atleast not in server)'}\n- ${message.guild?.id ?? 'N/A'}`, true)
-        .addField("Command:", command, true)
+        .addField("Command:", `${command} | \`${command.filepath}\``, true)
         .addField("Type:", "Command Handler (command side) error", true)
         .addField(`\u200b`, `\u200b`, true)
         const errchannel = message.client.channels.cache.get(errorlogid) as TextChannel

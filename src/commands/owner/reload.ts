@@ -55,9 +55,11 @@ export default class Reload extends Command{
             .addField(`Error`, err)
             await message.channel.send(embed)
         }
+        
         const embed = new MessageEmbed()
         .setAuthor(`${stuff.id} has been reloaded successfully`)
         return message.channel.send(embed)
+        
 
     }
 
