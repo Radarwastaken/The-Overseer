@@ -39,7 +39,7 @@ export default class Exec extends Command{
     public async exec(message: Message, { stuff }: { stuff: string }) {
 
         const embedz = new MessageEmbed()
-        .addField(`Input`, `\`\`\`powershell\n${stuff}\`\`\``)
+        .addField(`Input:`, `\`\`\`powershell\n${stuff}\`\`\``)
         message.channel.send(embedz)
         exec(stuff, async (e, stdout, stderr) => {
           if (stdout.length + stderr.length > 994) {
@@ -49,12 +49,12 @@ export default class Exec extends Command{
           } else {
             if (stdout) {
                 const embed = new MessageEmbed()
-                .addField(`Output`, `\`\`\`powershell\n${stdout}\`\`\``)
+                .addField(`Output:`, `\`\`\`powershell\n${stdout}\`\`\``)
                 message.channel.send(embed)
             }
             if (stderr) {
                 const embed = new MessageEmbed()
-                .addField(`Error(s)`, `\`\`\`powershell\n${stderr}\`\`\``)
+                .addField(`Error(s):`, `\`\`\`powershell\n${stderr}\`\`\``)
                 message.channel.send(embed)
             }
             if (!stderr && !stdout) {
