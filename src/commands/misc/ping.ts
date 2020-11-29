@@ -21,7 +21,7 @@ export default class Ping extends Command{
 
         const embed = new MessageEmbed()
         .setAuthor(`🏓Pong!`)
-        .setDescription(`**API Latency** : \`${this.client.ws.ping}\`ms`)
+        .setDescription(`**API Latency** : \`${this.client.ws.ping}ms\``)
         return message.channel.send(embed)
     }
 }
