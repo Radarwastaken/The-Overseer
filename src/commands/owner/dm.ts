@@ -23,7 +23,6 @@ export default class DM extends Command{
             args: [
                 {
                     id: "user",
-                    match: "content",
                     type: "user",
                     prompt: {
                         start: "Which User do i send DM to?(you have 45 seconds)",
