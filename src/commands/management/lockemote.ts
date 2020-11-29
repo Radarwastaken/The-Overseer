@@ -11,7 +11,7 @@ export default class LockEmote extends Command{
             editable: false,
             typing: true,
             channel: "guild",
-            category: "misc",
+            category: "management",
             clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
             userPermissions: ["MANAGE_EMOJIS", "MANAGE_ROLES"],
             description: {
