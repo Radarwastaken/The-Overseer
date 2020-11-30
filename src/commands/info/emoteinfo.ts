@@ -33,7 +33,7 @@ export default class Emoji extends Command{
         const embed = new MessageEmbed()
         .addField(`❯ID`, `\`${emoji.id}\``, true)
         .addField(`❯Name`, `\`${emoji.name}\``, true)
-        .addField(`❯URL`, `[Click Here](${emoji.url})`, true)
+        .addField(`❯URL`, `[Click Here](${emoji.url} "Emote URL")`, true)
         .addField(`❯Abstract form`, `\`<${emoji.animated ? "a" : "" }:${emoji.name}:${emoji.id}>\``)
         .setThumbnail(emoji.url || ``)
         .addField(`❯Roles`, `${emoji.roles.cache.array().map((r: Role) => `${r}`).join(`\n`) || `@everyone`}`, true)
