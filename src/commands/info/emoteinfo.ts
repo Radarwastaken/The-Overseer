@@ -10,7 +10,6 @@ export default class Emoji extends Command{
             aliases: ["emoteinfo", "emojiinfo"],
             editable: false,
             typing: true,
-            channel: "guild",
             category: "info",
             clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
             description: {
