@@ -1,5 +1,6 @@
 import 'discord-akairo'
 import { Command } from 'discord-akairo'
+import { Role } from 'discord.js'
 import { MessageEmbed } from 'discord.js'
 import { Message, GuildEmoji } from 'discord.js'
 
@@ -33,10 +34,10 @@ export default class Emoji extends Command{
         const embed = new MessageEmbed()
         .addField(`❯ID`, `\`${emoji.id}\``, true)
         .addField(`❯Name`, `\`${emoji.name}\``, true)
-        .addField(`❯Abstract form`, `\`<${emoji.animated ? "a" : "" }:${emoji.name}:${emoji.id}>\``, true)
-        .setThumbnail(emoji.url || ``)
-        .addField(`❯Role Restricted`, `${emoji.roles ? "Yes" : "No"}`, true)
         .addField(`❯URL`, `[Click Here](${emoji.url})`, true)
+        .addField(`❯Abstract form`, `\`<${emoji.animated ? "a" : "" }:${emoji.name}:${emoji.id}>\``)
+        .setThumbnail(emoji.url || ``)
+        .addField(`❯Roles`, `${emoji.roles.cache.array().map((r: Role) => `${r}`).join(`\n`) || `@everyone`}`, true)
         .addField(`❯Created by`, `${(await emoji.fetchAuthor()).tag || `Unknown`}`, true)
         .addField(`❯Created at`, `${emoji.createdAt || `Just now!`}`, true)
         .addField(`❯Animated`, `${emoji.animated ? "Yes" : "No"}`, true)
