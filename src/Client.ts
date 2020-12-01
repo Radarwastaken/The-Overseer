@@ -4,7 +4,6 @@ import { CommandHandler } from 'discord-akairo';
 import { AkairoClient } from 'discord-akairo';
 import { ownerIDs, prefix } from './Config'
 import { Message } from 'discord.js'
-import { CommandUtil } from 'discord-akairo';
 
 declare module 'discord-akairo' {
     interface AkairoClient {
