@@ -36,6 +36,7 @@ export default class Ban extends Command{
     }
 
     public async exec(message: Message, { member, reason, daysz }: { member: GuildMember, reason: string, daysz: number }) {
+        
         /**
          * Constant Declarations
          */
@@ -44,52 +45,52 @@ export default class Ban extends Command{
         /**
          * Embed Declarations
          */
-        const udumbman = new MessageEmbed()
+        const u_have_stupid_or_wat = new MessageEmbed()
         .setDescription(`😅 ${member} You can't **Ban** yourself`)
         .setColor(message.member?.displayHexColor || message.guild!.me?.displayHexColor || "#000000")
 
-        const wtfbro = new MessageEmbed()
+        const u_will_get_urself_banned_one_day = new MessageEmbed()
         .setDescription(`😅 ${message.member} You can't **Ban** someone with an equal or higher role`)
         .setColor(message.member?.displayHexColor || message.guild!.me?.displayHexColor || "#000000")
 
-        const whybullyme = new MessageEmbed()
+        const why_bully_me = new MessageEmbed()
         .setDescription(`😞 You can't Ban me using that command`)
 
-        const learnhowtodiscordudumb = new MessageEmbed()
+        const thats_not_how_discord_works_u_retard = new MessageEmbed()
         .setDescription(`😠 ${message.member} You can't **Ban** the server owner`)
         .setColor(message.member?.displayHexColor || message.guild!.me?.displayHexColor || "#000000")
 
-        const idkwhythatmemberisnotbanable = new MessageEmbed()
+        const retired_retard = new MessageEmbed()
         .setDescription(`☺️ ${message.member} That member is not Banable`)
         .setColor(message.member?.displayHexColor || message.guild!.me?.displayHexColor || "#000000")
 
-        const ruhappynow = new MessageEmbed()
-        .addField(`Done!`, `${message.member},\n${member} has now been Banned!`)
-        .addField(`Reason:`, reason)
-        .setColor(message.member?.displayHexColor || message.guild!.me?.displayHexColor || "#000000")
-
-        const unotjokingryt = new MessageEmbed()
+        const confirm_this_or_u_r_gay = new MessageEmbed()
         .setDescription(`${message.member}, Are you sure you want to **Ban** ${member}?(\`y\`/\`n\`)`)
         .addField(`Reason:`, reason)
         .setFooter(`⚠️Warning⚠️\nThey will not be able to rejoin until they are unbanned`)
 
-        const uretard = new MessageEmbed()
+        const should_have_read_the_rules = new MessageEmbed()
+        .addField(`Done!`, `${message.member},\n${member} has now been Banned!`)
+        .addField(`Reason:`, reason)
+        .setColor(message.member?.displayHexColor || message.guild!.me?.displayHexColor || "#000000")
+
+        const u_retard_stop_dicking_around = new MessageEmbed()
         .setDescription(`😒 I was pretty sure you were going to cancel`)
 
         /**
          * Checks
          */
-        if (member && member === message.member) return message.channel.send(udumbman)
-        if (member.roles.highest.position >= message.member!.roles.highest.position) return message.channel.send(wtfbro)
-        if (member === message.guild!.owner) return message.channel.send(learnhowtodiscordudumb)
-        if (member && member === message.guild!.me) return message.channel.send(whybullyme)
-        if (!member.bannable) return message.channel.send(idkwhythatmemberisnotbanable)
+        if (member && member === message.member) return message.channel.send(u_have_stupid_or_wat)
+        if (member.roles.highest.position >= message.member!.roles.highest.position) return message.channel.send(u_will_get_urself_banned_one_day)
+        if (member === message.guild!.owner) return message.channel.send(thats_not_how_discord_works_u_retard)
+        if (member && member === message.guild!.me) return message.channel.send(why_bully_me)
+        if (!member.bannable) return message.channel.send(retired_retard)
 
         /**
          * Confitmation
          */
         const confirmation = new Promise(async resolve => { 
-            await message.channel.send(unotjokingryt)
+            await message.channel.send(confirm_this_or_u_r_gay)
             await message.channel.awaitMessages(m => m.author.id == message.author.id && ["y", "n", "yes", "no"].includes(m.content.toLowerCase()), {
                 max: 1,
             })
@@ -102,11 +103,18 @@ export default class Ban extends Command{
          */
         if (await confirmation) {
 
+        /**
+         * Result
+         */
         await member.ban({reason: `${message.member!.id}: ${reason}`, days: daysz})
-        return message.channel.send(ruhappynow)
+        return message.channel.send(should_have_read_the_rules)
 
         } else {
-            return message.channel.send(uretard)
+
+        /**
+         * Result
+         */
+        return message.channel.send(u_retard_stop_dicking_around)
         }
 
     }

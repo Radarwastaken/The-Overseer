@@ -36,6 +36,11 @@ export default class Unban extends Command{
     }
 
     public async exec(message: Message, { member, reason, daysz }: { member: GuildMember, reason: string, daysz: number }) {
+
+        /**
+         * I am too lazy to do this command rn will do it later
+         */
+
         /**
          * Constant Declarations
          */
