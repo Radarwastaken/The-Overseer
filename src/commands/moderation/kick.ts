@@ -45,29 +45,33 @@ export default class Kick extends Command{
          * Embed Declarations
          */
         const udumbman = new MessageEmbed()
-        .setDescription(`😅 ${member} You can't **kick** yourself`)
+        .setDescription(`😅 ${member} You can't **Kick** yourself`)
         .setColor(message.member?.displayHexColor || message.guild!.me?.displayHexColor || "#000000")
 
         const wtfbro = new MessageEmbed()
-        .setDescription(`😅 ${message.member} You can't **kick** someone with an equal or higher role`)
+        .setDescription(`😅 ${message.member} You can't **Kick** someone with an equal or higher role`)
         .setColor(message.member?.displayHexColor || message.guild!.me?.displayHexColor || "#000000")
 
+        const whybullyme = new MessageEmbed()
+        .setDescription(`😞 You can't Kick me with that command`)
+
         const learnhowtodiscordudumb = new MessageEmbed()
-        .setDescription(`😠 ${message.member} You can't **kick** the server owner`)
+        .setDescription(`😠 ${message.member} You can't **Kick** the server owner`)
         .setColor(message.member?.displayHexColor || message.guild!.me?.displayHexColor || "#000000")
 
         const idkwhythatmemberisnotkickable = new MessageEmbed()
-        .setDescription(`☺️ ${message.member} That member is not kickable`)
+        .setDescription(`☺️ ${message.member} That member is not Kickable`)
         .setColor(message.member?.displayHexColor || message.guild!.me?.displayHexColor || "#000000")
 
         const ruhappynow = new MessageEmbed()
-        .addField(`Done!`, `${message.member},\n${member} has now been kicked!`)
+        .addField(`Done!`, `${message.member},\n${member} has now been Kicked!`)
         .setColor(message.member?.displayHexColor || message.guild!.me?.displayHexColor || "#000000")
+        .addField(`Reason:`, reason)
 
         const unotjokingryt = new MessageEmbed()
-        .setTitle(`${message.member?.displayName || message.author.username}, Are you sure you want to kick ${member.displayName || member.user.username}?(\`y\`/\`n\`)`)
-        .addField(`Reason`, reason)
-        .setFooter(`⚠️Warning⚠️\nThey will not be able to join the server again unless they get an invite`)
+        .setTitle(`${message.member?.displayName || message.author.username}, Are you sure you want to Kick ${member.displayName || member.user.username}?(\`y\`/\`n\`)`)
+        .addField(`Reason:`, reason)
+        .setFooter(`⚠️Warning⚠️\nThey will not be able to rejoin the server again unless they get an invite`)
 
         const uretard = new MessageEmbed()
         .setDescription(`😒 I was pretty sure you were going to cancel`)
@@ -78,6 +82,7 @@ export default class Kick extends Command{
         if (member && member === message.member) return message.channel.send(udumbman)
         if (member.roles.highest.position >= message.member!.roles.highest.position) return message.channel.send(wtfbro)
         if (member === message.guild!.owner) return message.channel.send(learnhowtodiscordudumb)
+        if (member && member === message.guild!.me) return message.channel.send(whybullyme)
         if (!member.kickable) return message.channel.send(idkwhythatmemberisnotkickable)
 
         /**
