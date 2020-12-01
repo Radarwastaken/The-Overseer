@@ -31,15 +31,37 @@ export default class Ping extends Command{
 
     public exec(message: Message, { ms }: { ms: number }): Promise<Message> {
 
-        let bettime = fn.cleanTime(ms)
-        if (bettime) {
-        const embed = new MessageEmbed()
+        /**
+         * Constant Declatarations
+         */
+        let i_am_proud_of_this_function = fn.cleanTime(ms)
+
+        /**
+         * Embeds
+         */
+        const thats_too_cool = new MessageEmbed()
         .addField("Done!",`\`${ms}ms\` is same as \`${fn.cleanTime(ms)}\``)
-        return message.channel.send(embed)
+
+        const thats_too_less_man = new MessageEmbed()
+        .addField("Done!", `Listen, \`${ms}ms\` is less than \`1001ms\` so it's value will be less than \`1s\``)
+
+        /**
+         * Checks
+         */
+        if (i_am_proud_of_this_function) {
+
+        /**
+         * Result
+         */
+        return message.channel.send(thats_too_cool)
+
         } else {
-            const embed = new MessageEmbed()
-            .addField("Done!", `Listen, \`${ms}\` is less than \`1000\` so it's value will be less than \`0s\``)
-            return message.channel.send(embed)
+
+        /**
+         * Result
+         */
+        return message.channel.send(thats_too_less_man)
+
         }
     }
 }
