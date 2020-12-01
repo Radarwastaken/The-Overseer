@@ -43,7 +43,12 @@ export default class Help extends Command{
         /**
          * all the owner proofing has been done by me
          */
-		const prefix = (this.client.cmdHandler.prefix);
+
+        /**
+         * I don't want to rewrite this atm bcz i am lazy
+         */
+        const prefix = (this.client.cmdHandler.prefix)
+        
 		if (!cmd) {
             if (!this.client.isOwner(message.author)) {
             const embed = new MessageEmbed()

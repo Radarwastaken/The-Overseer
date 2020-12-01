@@ -39,14 +39,35 @@ export default class LockEmote extends Command{
 
     public async exec(message: Message, { emoji , role }: { emoji: GuildEmoji, role: Role}){
 
+        /**
+         * Check
+         */
         if (!(emoji.guild.id === message.guild?.id)) return message.reply("I can't do anything with emotes from other servers")
-        const confirmembed = new MessageEmbed()
+
+        /**
+         * Embed Declarations
+         */
+        const r_u_sure = new MessageEmbed()
         .setTitle("Are you sure you want to lock this emote to that role?(`y`/`n`)")
         .addField("Emoji:", emoji, true)
         .addField("Role:", role, true)
         .setFooter(`⚠️Warning⚠️\nThat emote will be locked to that specific role\n(not even the server owner can access it without that role)`)
+        .setColor(message.guild.me?.displayHexColor || "#000000")
+
+        const i_feel_like_god_today = new MessageEmbed()
+        .addField(`🔒Emote Locked🔒`, `${emoji} is now locked to ${role}`)
+        .setFooter(`Note: You might have to reload discord for changes to take place`)
+        .setColor(message.guild.me?.displayHexColor || "#000000")
+        
+        const i_knew_you_are_a_retard = new MessageEmbed()
+        .setDescription("😒 I was pretty sure you were going to cancel")
+        .setColor(message.guild.me?.displayHexColor || "#000000")
+
+        /**
+         * Confirmation
+         */
         const confirmation = new Promise(async resolve => { 
-            await message.channel.send(confirmembed)
+            await message.channel.send(r_u_sure)
             await message.channel.awaitMessages(m => m.author.id == message.author.id && ["y", "n", "yes", "no"].includes(m.content.toLowerCase()), {
                 max: 1,
             })
@@ -54,16 +75,14 @@ export default class LockEmote extends Command{
             .catch(() => resolve(false))
         })
 
+        /**
+         * Check for confirmation and execute result
+         */
         if (await confirmation) {
             await emoji.roles.set([role])
-            const doneembed = new MessageEmbed()
-            .addField(`🔒Emote Locked🔒`, `${emoji} is now locked to ${role}`)
-            .setFooter(`Note: You might have to reload discord for changes to take place\n(Bot not being able to send emote is not a bug it's a feature)`)
-            return message.channel.send(doneembed)
+            return message.channel.send(i_feel_like_god_today)
         } else {
-            const notdoneembed = new MessageEmbed()
-            .setDescription("😒 I was pretty sure you were going to cancel")
-            return message.channel.send(notdoneembed)
+            return message.channel.send(i_knew_you_are_a_retard)
         }
     }
 }

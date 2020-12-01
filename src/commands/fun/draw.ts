@@ -24,13 +24,13 @@ export default class Draw extends Command{
          */
         let base = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
         let modifier = ["♠️", "♥️", "♣️", "♦️"]
-        let ihadtodothisforembedcolors = fn.choice(modifier)
+        let i_had_to_do_this_for_embed_colors = fn.choice(modifier)
         let color
 
         /**
          * Checks
          */
-        if (ihadtodothisforembedcolors === "♣️" || "♠️") {
+        if (i_had_to_do_this_for_embed_colors === "♣️" || "♠️") {
             color = "#000000"
         }
         else {
@@ -40,12 +40,12 @@ export default class Draw extends Command{
         /**
          * Embed Declarations (After Checks because rn checks define color of embeds)
          */
-        const embed = new MessageEmbed()
+        const do_something_other_than_discord_u_retard = new MessageEmbed()
         .setAuthor(`I Drew`)
-        .setDescription(`**${fn.choice(base)}${ihadtodothisforembedcolors}**`)
+        .setDescription(`**${fn.choice(base)}${i_had_to_do_this_for_embed_colors}**`)
         .setColor(color)
 
-        return message.channel.send(embed)
+        return message.channel.send(do_something_other_than_discord_u_retard)
         
     }
 }

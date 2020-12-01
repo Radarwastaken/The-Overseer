@@ -31,14 +31,33 @@ export default class UnlockEmote extends Command{
 
     public async exec(message: Message, { emoji }: { emoji: GuildEmoji }): Promise<Message> {
 
+        /**
+         * Checks
+         */
         if (!(emoji.guild.id === message.guild?.id)) return message.reply("I can't do anything with emotes from other servers")
         if (!emoji.roles) return message.reply("That emote isn't locked")
-        const confirmembed = new MessageEmbed()
+
+        /**
+         * Embed Declarations
+         */
+        const confirm_embed = new MessageEmbed()
         .setTitle("Are you sure you want to unlock that emote?(`y`/`n`)")
         .addField("Emoji:", emoji, true)
         .setFooter(`⚠️Warning⚠️\nThis will remove the emote to role integration completely and everyone will be able to use that emote regardless of their roles`)
+        .setColor(message.guild.me?.displayHexColor || "#000000")
+
+        const i_feel_like_god_today = new MessageEmbed()
+        .addField(`🔓Emote Unlocked🔓`, `${emoji} is now unlocked`)
+        .setFooter(`Note: You might have to reload discord for changes to take place`)
+
+        const i_knew_you_are_a_retard = new MessageEmbed()
+        .setDescription("😒 I was pretty sure you were going to cancel")
+
+        /**
+         * Confirmation
+         */
         const confirmation = new Promise(async resolve => { 
-            await message.channel.send(confirmembed)
+            await message.channel.send(confirm_embed)
             await message.channel.awaitMessages(m => m.author.id == message.author.id && ["y", "n", "yes", "no"].includes(m.content.toLowerCase()), {
                 max: 1,
             })
@@ -46,16 +65,14 @@ export default class UnlockEmote extends Command{
             .catch(() => resolve(false))
         })
 
+        /**
+         * Await Confirmation and execute result
+         */
         if (await confirmation) {
             await emoji.roles.set([])
-            const doneembed = new MessageEmbed()
-            .addField(`🔓Emote Unlocked🔓`, `${emoji} is now unlocked`)
-            .setFooter(`Note: You might have to reload discord for changes to take place`)
-            return message.channel.send(doneembed)
+            return message.channel.send(i_feel_like_god_today)
         } else {
-            const notdoneembed = new MessageEmbed()
-            .setDescription("😒 I was pretty sure you were going to cancel")
-            return message.channel.send(notdoneembed)
+            return message.channel.send(i_knew_you_are_a_retard)
         }
     }
 }

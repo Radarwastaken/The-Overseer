@@ -19,9 +19,16 @@ export default class Ping extends Command{
 
     public exec(message: Message): Promise<Message> {
 
-        const embed = new MessageEmbed()
+        /**
+         * Embed Declarations
+         */
+        const do_something_productive_u_piece_of_shit = new MessageEmbed()
         .setAuthor(`🏓Pong!`)
         .setDescription(`**API Latency** : \`${this.client.ws.ping}ms\``)
-        return message.channel.send(embed)
+
+        /**
+         * Possibly the result
+         */
+        return message.channel.send(do_something_productive_u_piece_of_shit)
     }
 }

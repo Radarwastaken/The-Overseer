@@ -20,8 +20,15 @@ export default class Uptime extends Command{
 
     public async exec(message: Message): Promise<Message> {
 
-        const embed = new MessageEmbed()
-        .setDescription(`**Uptime** : \`${fn.cleanTime(this.client.uptime || 0)}\``) //Fuck that i had to put 0 because it can return null
-        return message.channel.send(embed)
+        /**
+         * Embed Declarations
+         */
+        const i_swear_if_you_dont_do_something = new MessageEmbed()
+        .setDescription(`**Uptime** : \`${fn.cleanTime(this.client.uptime || 0)}\``)
+
+        /**
+         * Result
+         */
+        return message.channel.send(i_swear_if_you_dont_do_something)
     }
 }

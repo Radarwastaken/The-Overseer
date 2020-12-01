@@ -31,17 +31,41 @@ export default class WithRole extends Command{
 
     public async exec(message: Message, { role }: { role: Role }): Promise<Message> {
 
+        /**
+         * Fetch everyone
+         */
         await message.guild?.members.fetch()
+
+        /**
+         * Checks and Embeds
+         */
         if (!message.guild?.roles.cache.get(role.id)?.members.size) {
-            const embed = new MessageEmbed()
-            .setDescription(`😟 No Members Found With the ${role} role`)
-            return message.channel.send(embed)
+
+        /**
+         * Embed
+         */
+        const delete_that_role_u_dumbass = new MessageEmbed()
+        .setDescription(`😟 No Members Found With the ${role} role`)
+
+        /**
+         * Result
+         */
+        return message.channel.send(delete_that_role_u_dumbass)
+
         } else {
-        const embed = new MessageEmbed()
+
+        /**
+         * Embed
+         */
+        const group_of_retired_retards = new MessageEmbed()
         .addField("List:", `${message.guild?.roles.cache.get(role.id)?.members.map(m=>`**${m.user.tag} - **\`${m.user.id}\``).join(`\n`)}\n\nThe above user(s) have the ${role} role`)
         .setFooter(`requested by ${message.author.tag}`)
         
-        return message.channel.send(embed)
+        /**
+         * Result
+         */
+        return message.channel.send(group_of_retired_retards)
+
         }
     }
 }
