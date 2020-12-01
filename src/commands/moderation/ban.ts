@@ -69,7 +69,7 @@ export default class Ping extends Command{
         .setColor(message.member?.displayHexColor || message.guild!.me?.displayHexColor || "#000000")
 
         const unotjokingryt = new MessageEmbed()
-        .setTitle(`${message.member?.displayName || message.author.username}, Are you sure you want to Ban ${member.displayName || member.user.username}?(\`y\`/\`n\`)`)
+        .setDescription(`${message.member}, Are you sure you want to **Ban** ${member}?(\`y\`/\`n\`)`)
         .addField(`Reason:`, reason)
         .setFooter(`⚠️Warning⚠️\nThey will not be able to rejoin until they are unbanned`)
 

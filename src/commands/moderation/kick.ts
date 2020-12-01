@@ -69,7 +69,7 @@ export default class Kick extends Command{
         .addField(`Reason:`, reason)
 
         const unotjokingryt = new MessageEmbed()
-        .setTitle(`${message.member?.displayName || message.author.username}, Are you sure you want to Kick ${member.displayName || member.user.username}?(\`y\`/\`n\`)`)
+        .setDescription(`${message.member}, Are you sure you want to **Kick** ${member.displayName}?(\`y\`/\`n\`)`)
         .addField(`Reason:`, reason)
         .setFooter(`⚠️Warning⚠️\nThey will not be able to rejoin the server again unless they get an invite`)
 
