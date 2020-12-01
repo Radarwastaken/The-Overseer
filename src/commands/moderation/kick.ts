@@ -4,7 +4,7 @@ import { GuildMember } from 'discord.js'
 import { MessageEmbed } from 'discord.js'
 import { Message } from 'discord.js'
 
-export default class Ping extends Command{
+export default class Kick extends Command{
     public constructor() {
         super("kick", {
             aliases: ["kick"],
@@ -39,8 +39,7 @@ export default class Ping extends Command{
         /**
          * Constant Declarations
          */
-        if (reason.length > 50) reason = reason.substring(0, reason.length - 50) + "..."
-        reason = `${message.member!.id}: ${reason}`
+        if (reason.length > 480) reason = `${reason.substring(0, 480)}...`
 
         /**
          * Embed Declarations
@@ -67,6 +66,7 @@ export default class Ping extends Command{
 
         const unotjokingryt = new MessageEmbed()
         .setTitle(`${message.member?.displayName || message.author.username}, Are you sure you want to kick ${member.displayName || member.user.username}?(\`y\`/\`n\`)`)
+        .addField(`Reason`, reason)
         .setFooter(`⚠️Warning⚠️\nThey will not be able to join the server again unless they get an invite`)
 
         const uretard = new MessageEmbed()
@@ -97,7 +97,7 @@ export default class Ping extends Command{
          */
         if (await confirmation) {
 
-        await member.kick(reason)
+        await member.kick(`${message.member!.id}: ${reason}`)
         return message.channel.send(ruhappynow)
 
         } else {
