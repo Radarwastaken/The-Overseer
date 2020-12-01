@@ -13,7 +13,7 @@ export default class Msg extends Listener {
     }
 
     public exec(message: Message) {
-        if (message.content.toLowerCase() === `<@${this.client.user!.id}>` || `<@!${this.client.user!.id}>`) {
+        if (!message.author.bot && message.content === `<@${this.client.user!.id}>` || message.content === `<@!${this.client.user!.id}>`) {
             
             const yes_its_me = new MessageEmbed()
             .setDescription(`My Prefix here is \`${this.client.cmdHandler.prefix}\`.`)
