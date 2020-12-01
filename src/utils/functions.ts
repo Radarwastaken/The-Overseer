@@ -41,7 +41,7 @@ function random(min: number, max: number) {
 }
 
 /**
- * Removes Duplicat entries from array
+ * Removes Duplicate entries from array
  * @param {string[]} array
  */
 function cleanArray(array: string[]) {
