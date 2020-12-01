@@ -46,7 +46,7 @@ export default class Exec extends Command{
                 message.channel.send(`**Output:**\n\`\`\`powershell\n${stdout}\`\`\``)
             }
             if (stderr) {
-                message.channel.send(`**Error(s):\n\`\`\`powershell\n${stderr}\`\`\``)
+                message.channel.send(`**Error(s):**\n\`\`\`powershell\n${stderr}\`\`\``)
             }
             if (!stderr && !stdout) {
                 message.react("✔️")
