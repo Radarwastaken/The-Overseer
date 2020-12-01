@@ -4,6 +4,7 @@ import { CommandHandler } from 'discord-akairo';
 import { AkairoClient } from 'discord-akairo';
 import { ownerIDs, prefix } from './Config'
 import { Message } from 'discord.js'
+import { CommandUtil } from 'discord-akairo';
 
 declare module 'discord-akairo' {
     interface AkairoClient {
@@ -23,7 +24,7 @@ export default class Client extends AkairoClient {
     public eventHandler: ListenerHandler = new ListenerHandler(this, {
         directory: './listeners'
     })
-    public cmdHandler: CommandHandler= new CommandHandler(this, {
+    public cmdHandler: CommandHandler = new CommandHandler(this, {
         directory: './commands',
         prefix: prefix,
         ignoreCooldown: ownerIDs,
