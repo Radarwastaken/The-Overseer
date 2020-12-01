@@ -10,7 +10,7 @@ export default class Ping extends Command{
             aliases: ["bettertime", "converttime", "cleantime"],
             editable: false,
             typing: true,
-            category: "misc",
+            category: "utility",
             clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
             description: {
                 content: "Converts time in milliseconds into a user friendly format",

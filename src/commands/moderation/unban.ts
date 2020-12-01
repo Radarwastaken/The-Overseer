@@ -4,10 +4,10 @@ import { GuildMember } from 'discord.js'
 import { MessageEmbed } from 'discord.js'
 import { Message } from 'discord.js'
 
-export default class Ban extends Command{
+export default class Unban extends Command{
     public constructor() {
-        super("ban", {
-            aliases: ["ban"],
+        super("unban", {
+            aliases: ["unban"],
             editable: false,
             typing: true,
             channel: "guild",
@@ -15,7 +15,7 @@ export default class Ban extends Command{
             clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "BAN_MEMBERS"],
             userPermissions: ["BAN_MEMBERS"],
             description: {
-                content: "Ban a member from the server",
+                content: "Unban a member from the server",
                 usage: "< member > [ reason ]"
             },
             args: [

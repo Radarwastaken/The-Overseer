@@ -1,7 +1,6 @@
 import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
 import { exec } from 'child_process'
-import { MessageEmbed } from 'discord.js'
 
 export default class Exec extends Command{
     public constructor() {
@@ -38,31 +37,23 @@ export default class Exec extends Command{
 
     public async exec(message: Message, { stuff }: { stuff: string }) {
 
-        const embedz = new MessageEmbed()
-        .addField(`Input:`, `\`\`\`powershell\n${stuff}\`\`\``)
-        message.channel.send(embedz)
+        message.channel.send(`**Input:**\n\`\`\`powershell\n${stuff}\`\`\``)
         exec(stuff, async (e, stdout, stderr) => {
-          if (stdout.length + stderr.length > 994) {
-                const embed = new MessageEmbed()
-                .setAuthor(`Console log exceeds 2000 characters.`)
-                message.channel.send(embed)
+          if (stdout.length + stderr.length > 984) {
+                message.channel.send(`Console Log Exceeds 2000 Characters...`)
           } else {
             if (stdout) {
-                const embed = new MessageEmbed()
-                .addField(`Output:`, `\`\`\`powershell\n${stdout}\`\`\``)
-                message.channel.send(embed)
+                message.channel.send(`**Output:**\n\`\`\`powershell\n${stdout}\`\`\``)
             }
             if (stderr) {
-                const embed = new MessageEmbed()
-                .addField(`Error(s):`, `\`\`\`powershell\n${stderr}\`\`\``)
-                message.channel.send(embed)
+                message.channel.send(`**Error(s):\n\`\`\`powershell\n${stderr}\`\`\``)
             }
             if (!stderr && !stdout) {
                 message.react("✔️")
             }
           }
           if (e) {
-            console.log(e)
+              message.channel.send(`**Error:**\n\`\`\`\n${e}\`\`\``)
           }
           })
         }
