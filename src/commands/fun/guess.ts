@@ -9,7 +9,6 @@ export default class Guess extends Command{
             aliases: ["guess"],
             editable: false,
             typing: true,
-            channel: "guild",
             category: "fun",
             clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
             description: {
