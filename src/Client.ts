@@ -12,7 +12,6 @@ declare module 'discord-akairo' {
     }
 }
 
-
 interface clientOptions {
     token?: string;
     ownerIDs?: string[];
