@@ -19,16 +19,32 @@ export default class Draw extends Command{
     }
 
     public exec(message: Message): Promise<Message> {
+        /**
+         * Constant Declaration
+         */
+        let base = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+        let modifier = ["♠️", "♥️", "♣️", "♦️"]
+        let ihadtodothisforembedcolors = fn.choice(modifier)
+        let color
 
-        let deck = ["A♥️", "2♥️", "3♥️", "4♥️", "5♥️", "6♥️", "7♥️", "8♥️", "9♥️", "10♥️", "J♥️", "Q♥️", "K♥️",
-                    "A♠️", "2♠️", "3♠️", "4♠️", "5♠️", "6♠️", "7♠️", "8♠️", "9♠️", "10♠️", "J♠️", "Q♠️", "K♠️",
-                    "A♦️", "2♦️", "3♦️", "4♦️", "5♦️", "6♦️", "7♦️", "8♦️", "9♦️", "10♦️", "J♦️", "Q♦️", "K♦️",
-                    "A♣️", "2♣️", "3♣️", "4♣️", "5♣️", "6♣️", "7♣️", "8♣️", "9♣️", "10♣️", "J♣️", "Q♣️", "K♣️"]
+        /**
+         * Checks
+         */
+        if (ihadtodothisforembedcolors === "♣️" || "♠️") {
+            color = "#000000"
+        }
+        else {
+            color = "#ff0000"
+        }
 
-        
+        /**
+         * Embed Declarations (After Checks because rn checks define color of embeds)
+         */
         const embed = new MessageEmbed()
         .setAuthor(`I Drew`)
-        .setDescription(`**${fn.choice(deck)}**`)
+        .setDescription(`**${fn.choice(base)}${ihadtodothisforembedcolors}**`)
+        .setColor(color)
+
         return message.channel.send(embed)
         
     }
