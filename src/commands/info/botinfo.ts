@@ -32,6 +32,9 @@ export default class BotInfo extends Command{
     Average Server Size: \`${this.client.users.cache.size / this.client.guilds.cache.size}\``)
     .setFooter(`The Above stats are cached stats and the actual stats may vary due to caching`)
 
+    /**
+     * Result
+     */
     return message.channel.send(embed)
     }
 }
