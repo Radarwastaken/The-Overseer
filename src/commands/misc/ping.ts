@@ -22,13 +22,16 @@ export default class Ping extends Command{
         /**
          * Embed Declarations
          */
-        const do_something_productive_u_piece_of_shit = new MessageEmbed()
-        .setAuthor(`🏓Pong!`)
-        .setDescription(`**API Latency** : \`${this.client.ws.ping}ms\``)
+        let do_something_productive_u_piece_of_shit = new MessageEmbed()
+        .setAuthor("🏓Pinging...")
+        .addField("API Latency:", `\`${this.client.ws.ping}ms\``)
 
-        /**
-         * Possibly the result
-         */
-        return message.channel.send(do_something_productive_u_piece_of_shit)
+        const msg: any = message.channel.send(do_something_productive_u_piece_of_shit)
+        do_something_productive_u_piece_of_shit = new MessageEmbed()
+        .setAuthor("🏓Pong!")
+        .addField("Latency:", `${Math.floor(msg.createdTimestamp - ((message.editedTimestamp) ? message.editedTimestamp : message.createdTimestamp))}`)
+        .addField("API Latency:", `\`${this.client.ws.ping}ms\``)
+
+        return msg.edit(do_something_productive_u_piece_of_shit)
     }
 }
