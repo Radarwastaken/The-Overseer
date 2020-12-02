@@ -1,8 +1,12 @@
 import 'discord-akairo'
+import * as djs from 'discord.js'
+import * as da from 'discord-akairo'
+import * as ts from 'typescript'
 import { Command } from 'discord-akairo'
 import { MessageEmbed } from 'discord.js'
 import { Message } from 'discord.js'
 import fn from '../../utils/functions'
+import * as os from 'os'
 
 export default class BotInfo extends Command{
     public constructor() {
@@ -24,13 +28,22 @@ export default class BotInfo extends Command{
      * Embed Declarations
      */
     const embed = new MessageEmbed()
-    .addField("Statistics",
+    .addField("❯Statistics",
     `Users: \`${this.client.users.cache.size}\`
     Servers: \`${this.client.guilds.cache.size}\`
     Uptime: \`${fn.cleanTime(this.client.uptime || 0)}\`
     Latency: \`${this.client.ws.ping}ms\`
     Average Server Size: \`${this.client.users.cache.size / this.client.guilds.cache.size}\``)
-    .setFooter(`The Above stats are cached stats and the actual stats may vary due to caching`)
+    .addField("❯Technical Statistics",
+    `OS Version: \`${os.version}\`
+    Total Memory: \`${os.totalmem}\`
+    Free Memory: \`${os.freemem}\`
+    Platform: \`${os.platform}\`
+    Node JS Version: \`${process.version}\`
+    Discord.js Version: \`${djs.version}\`
+    Discord Akairo Version: \`${da.version}\`
+    Typescript Version: \`${ts.version}\``)
+    .setFooter(`The Above stats are cached stats and the actual stats may vary`)
 
     /**
      * Result

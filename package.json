@@ -1,6 +1,6 @@
 {
   "name": "overseer",
-  "version": "1.0.0",
+  "version": "1.2.3",
   "description": "Overseer, A feature-elite discord bot",
   "main": "index.js",
   "scripts": {
