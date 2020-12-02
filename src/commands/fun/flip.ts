@@ -19,7 +19,8 @@ export default class Flip extends Command{
     }
 
     public exec(message: Message): Promise<Message> {
-        let fuck_tuition_tests = ["Heads", "Tails"]
+        let fuck_tuition_tests = ["Heads", "Tails"]//Rant: yes i had to write this during a stupid tuition test of which they are not even ready to take the 
+                                                   //Continuation: pdf of the paper through whatsapp their crappy app doesn't even do anything simple such as opening a pdf
         return message.channel.send(`${fn.choice(fuck_tuition_tests)}`)//Todo: Add 2 emotes (one for heads and other for tails) and imply it here
     }
 }
