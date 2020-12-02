@@ -42,7 +42,7 @@ export default class Emoji extends Command{
         .setColor(message.guild?.me?.displayHexColor || "yellow")
         .addField(`❯ Roles`, `${emoji.roles.cache.array().map((r: Role) => `${r}`).join(`\n`) || `@everyone`}`, true)
         .addField(`❯ Created by`, `${(await emoji.fetchAuthor()).tag || `Unknown`}`, true)
-        .addField(`❯ Created at`, `${emoji.createdAt || `Just now!`}`, true)
+        .addField(`❯ Created at`, `${new Date(emoji.createdTimestamp).getDate()}-${new Date(emoji.createdTimestamp).getMonth()}-${new Date(emoji.createdTimestamp).getFullYear()}`, true)
         .addField(`❯ Animated`, `${emoji.animated ? "Yes" : "No"}`, true)
         .addField(`\u200b`, `\u200b`, true)
         if (emoji.guild != message.guild) {

@@ -2,6 +2,7 @@ import 'discord-akairo'
 import 'discord.js'
 import { Command } from 'discord-akairo'
 import { Message } from 'discord.js'
+import { performance } from 'perf_hooks'
 
 export default class Eval extends Command{
     public constructor() {
@@ -35,7 +36,11 @@ export default class Eval extends Command{
 
     public async exec(message: Message, { code }: { code: string }): Promise<Message> {
 
-        return message.channel.send(`\`\`\`ts\n${eval(code)}\`\`\``)
+        let t1 = performance.now()
+        let evalled = eval(code)
+        let t2 = performance.now()
+        let tt = t2 - t1
+        return message.channel.send(`*Evaluated in ${tt}ms*\n\`\`\`js\n${evalled}\`\`\``)
         
     }
 
