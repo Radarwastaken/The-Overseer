@@ -28,16 +28,16 @@ export default class BotInfo extends Command{
      * Embed Declarations
      */
     const embed = new MessageEmbed()
-    .addField("❯Statistics",
+    .addField("❯ Statistics",
     `Users: \`${this.client.users.cache.size}\`
     Servers: \`${this.client.guilds.cache.size}\`
     Uptime: \`${fn.cleanTime(this.client.uptime || 0)}\`
     Latency: \`${this.client.ws.ping}ms\`
     Average Server Size: \`${this.client.users.cache.size / this.client.guilds.cache.size}\``)
-    .addField("❯Technical Statistics",
+    .addField("❯ Technical Statistics",
     `OS Version: \`${os.version}\`
-    Total Memory: \`${os.totalmem}\`
-    Free Memory: \`${os.freemem}\`
+    Total Memory: \`${(((os.totalmem() / 1024) / 1024) / 1204).toFixed(2)} GB\`
+    Free Memory: \`${(((os.freemem() / 1024) / 1024) / 1204).toFixed(2)} GB\`
     Platform: \`${os.platform}\`
     Node JS Version: \`${process.version}\`
     Discord.js Version: \`${djs.version}\`
