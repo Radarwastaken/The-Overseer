@@ -81,15 +81,16 @@ export default class Ping extends Command{
         }
         how_the_heck.addField(`❯Member Info`,
         `Nickname: \`${member.nickname || member.user.username}\`
-        Booster: \`${member.premiumSince ? `Yes\nBoosting Since: \`${member.premiumSince}` : "No"}\`
-        Joined At: \`${member.joinedAt}\`${highestrole ? `\nHighest Role: \`${highestrole}\`` : ""}${member.roles.color ? `\nColor Role: \`${member.roles.color}\`` : ""}${member.displayHexColor ? `\n\`Display Color: \`${member.displayHexColor}\`` : ""}\``)
+        Booster: ${member.premiumSince ? `\`Yes\`\nBoosting Since: \`${member.premiumSince}\`` : "`No`"}
+        Joined At: \`${member.joinedAt}\`${highestrole ? `\nHighest Role: ${highestrole}` : ""}${member.roles.color ? `\nColor Role: ${member.roles.color}` : ""}${member.displayHexColor ? `\nDisplay Color: \`${member.displayHexColor}\``  : ""}`)
         .setColor(member.displayHexColor || "#000000")
         //Noice
         /**
          * Checks
          */
         if (member.permissions) {
-            how_the_heck.addField(`❯Permissions:`, `\`${(member.permissions.toArray().map((p: string) => perms[p])).join(`\n`)}\``)
+            if (member.hasPermission("ADMINISTRATOR")) how_the_heck.addField(`❯Permissions:`, "`Administrator`")
+            else how_the_heck.addField(`❯Permissions:`, `\`${(member.permissions.toArray().map((p: string) => perms[p])).join(`, `)}\``)
         }
         if (member.roles.cache.size > 1) {
             how_the_heck.addField(`❯Roles:`, `${member.roles.cache.map(r => r).filter(r => r.id != message.guild!.id).sort((a, b) => b.position - a.position).join(`\n`)}`)
