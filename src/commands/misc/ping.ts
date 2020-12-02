@@ -12,7 +12,7 @@ export default class Ping extends Command{
             category: "misc",
             clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
             description: {
-                content: "Check the API Latency of the bot"
+                content: "Check the bot's Latency and API Latency"
             }
         })
     }
