@@ -31,9 +31,9 @@ export default class BotInfo extends Command{
     .addField("❯ Statistics",
     `Users: \`${this.client.users.cache.size}\`
     Servers: \`${this.client.guilds.cache.size}\`
-    Uptime: \`${fn.cleanTime(this.client.uptime || 0)}\`
+    Uptime: \`${fn.cleanTime(this.client.uptime || 0) || `${this.client.uptime}ms`}\`
     Latency: \`${this.client.ws.ping}ms\`
-    Average Server Size: \`${this.client.users.cache.size / this.client.guilds.cache.size}\``)
+    Average Server Size: \`${(this.client.users.cache.size / this.client.guilds.cache.size).toFixed(2)}\``)
     .addField("❯ Technical Statistics",
     `OS Version: \`${os.version}\`
     Total Memory: \`${(((os.totalmem() / 1024) / 1024) / 1204).toFixed(2)} GB\`
