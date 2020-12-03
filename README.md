@@ -39,7 +39,7 @@ Yes! You read that correct, the code behind decent bot is open source and can be
 # Suggestion and Bugs
 For these you can open an issue [here](https://github.com/Dhruvin-Purohit/The-Overseer/issues/new "Github Repository")
 
-# Contirbute
+# Contribute
 Contribution are welcomed and you will be credited if considerable amount of contribution is done
 
 You can contribute [here](https://github.com/Dhruvin-Purohit/The-Overseer "Github Repository")
