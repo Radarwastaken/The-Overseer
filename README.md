@@ -1,4 +1,21 @@
 # **Decent Bot** is a Preeminent discord bot with a considerable amount of features.
+<p align="center">
+  <a href="https://github.com/Dhruvin-Purohit/The-Overseer/blob/master/LICENSE" target="blank">
+  <img src="https://img.shields.io/github/license/Dhruvin-Purohit/The-Overseer?style=for-the-badge&color="success"" alt="License">
+  </a>
+  <a href="https://github.com/Dhruvin-Purohit/The-Overseer/fork" target="blank">
+  <img src="https://img.shields.io/github/forks/Dhruvin-Purohit/The-Overseer?style=for-the-badge&color="success"" alt="Forks">
+  </a>
+  <a href="https://github.com/Dhruvin-Purohit/The-Overseer/stargazers" target="blank">
+  <img src="https://img.shields.io/github/stars/Dhruvin-Purohit/The-Overseer?style=for-the-badge&color="success"" alt="Stars">
+  </a>
+  <a href="https://github.com/Dhruvin-Purohit/The-Overseer/pulls" target="blank">
+  <img src="https://img.shields.io/github/issues-pr/Dhruvin-Purohit/The-Overseer?style=for-the-badge&color="success"" alt="Pull Requests">
+  </a>
+  <a href="https://github.com/Dhruvin-Purohit/The-Overseer/issues" target="blank">
+  <img src="https://img.shields.io/github/issues/Dhruvin-Purohit/The-Overseer?style=for-the-badge&color="success"" alt="Issues">
+  </a>
+</p>
 
 ## Features
 ### Breif list:
@@ -45,6 +62,8 @@ Contribution are welcomed and you will be credited if considerable amount of con
 You can contribute [here](https://github.com/Dhruvin-Purohit/The-Overseer "Github Repository")
 
 # Contributors
+<p align="center">
 <a href="https://github.com/Dhruvin-Purohit/The-Overseer/graphs/contributors">
   <img src="https://contributors-img.web.app/image?repo=Dhruvin-Purohit/The-Overseer" />
 </a>
+</p>
