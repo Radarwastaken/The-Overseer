@@ -17,7 +17,7 @@ export default class Ping extends Command{
         })
     }
 
-    public exec(message: Message): Promise<Message> {
+    public async exec(message: Message): Promise<Message> {
 
         /**
          * Embed Declarations
@@ -26,11 +26,11 @@ export default class Ping extends Command{
         .setAuthor("🏓Pinging...")
         .addField("API Latency:", `\`${this.client.ws.ping}ms\``)
 
-        const msg: any = message.channel.send(do_something_productive_u_piece_of_shit)
+        const msg = await message.channel.send(do_something_productive_u_piece_of_shit)
         do_something_productive_u_piece_of_shit = new MessageEmbed()
         .setAuthor("🏓Pong!")
-        .addField("Latency:", `${Math.floor(msg.createdTimestamp - ((message.editedTimestamp) ? message.editedTimestamp : message.createdTimestamp))}`)
-        .addField("API Latency:", `\`${this.client.ws.ping}ms\``)
+        .addField("Latency:", `\`${Math.floor(msg.createdTimestamp - ((message.editedTimestamp) ? message.editedTimestamp : message.createdTimestamp))}\`ms`, true)
+        .addField("API Latency:", `\`${this.client.ws.ping}ms\``, true)
 
         return msg.edit(do_something_productive_u_piece_of_shit)
     }
