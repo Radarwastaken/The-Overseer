@@ -16,7 +16,7 @@ export default class Cooldown extends Listener {
     public exec(message: Message, command: Command, cooldown: number): Promise<Message> {
         const embed = new MessageEmbed()
         .setAuthor(`Too Quick`)
-        .setDescription(`${message.author} Can you not wait for \`${fn.cleanTime(cooldown)}\`s before using ${command.aliases[0]} Command again?`)
+        .setDescription(`${message.author} Can you not wait for \`${fn.cleanTime(cooldown) ? `${fn.cleanTime(cooldown)}` : `${cooldown}ms`}\` before using ${command.aliases[0]} Command again?`)
         return message.channel.send(embed)
     }
 }
