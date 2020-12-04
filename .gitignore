@@ -8,8 +8,7 @@ node_modules
 package-lock.json
 
 # the folder where ts compiles all stuff
-# dist
-# Don't ask me why i am pushing compiled stuff it is needed to host the bot!
+dist
 
 # Logs
 logs
