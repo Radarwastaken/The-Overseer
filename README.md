@@ -18,7 +18,7 @@
 </p>
 
 ## Features
-### Breif list:
+### Brief list:
 `1).` Lock Emotes to certain roles so that *only* people will that role are able to access that emote
 
 `2).` View all roles of the server in one command
