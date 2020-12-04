@@ -34,8 +34,11 @@ export default class clientError extends Listener {
         .addField("Type:", "Client (client side) error", true)
         .addField(`\u200b`, `\u200b`, true)
         const errchannel = message.client.channels.cache.get(errorlogid) as TextChannel
-
+        try {
         message.channel.send(embedtoo)
+        } catch {
+            //HaHa MiSsInG PeRmS
+        }
         return errchannel.send(embed)
     }
 }

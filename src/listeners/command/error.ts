@@ -34,8 +34,11 @@ export default class cmdError extends Listener {
         .addField("Type:", "Command Handler (command side) error", true)
         .addField(`\u200b`, `\u200b`, true)
         const errchannel = message.client.channels.cache.get(errorlogid) as TextChannel
- 
-        message.channel.send(embedtoo)
+        try {
+            message.channel.send(embedtoo)
+        } catch {
+            //HaHa MiSsInG PeRmS
+        }
         return errchannel.send(embed)
     }
 }
