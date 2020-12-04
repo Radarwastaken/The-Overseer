@@ -1,4 +1,17 @@
 # Self Hosting
+<p align="center">
+  <a href="##Making a bot and adding it to your server">Basics</a>
+  •
+  <a href="##Requirements">Requirements</a>
+  •
+  <a href="##Installing Other Requirements">Other Installations</a>
+  •
+  <a href="##Last Steps">Finishing Up</a>
+  •
+  <a href="##How to Get API Keys">Api Keys</a>
+  •
+  <a href="##Starting the bot!">Start the bot!</a>
+</p>
 
 ## Making a bot and adding it to your server
 `1).` Go to [Discord Develper Portal](https://discord.com/developers "Discord Developer Portal") and sign in
