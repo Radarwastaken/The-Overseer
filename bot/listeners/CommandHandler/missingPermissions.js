@@ -1,12 +1,12 @@
 const { Listener, Command } = require('discord-akairo')
 const { MessageEmbed } = require('discord.js')
-const permissions = require('../../assets/permssions.json')
+const permissions = require('../../assets/permissions.json')
 const emojis = require('../../utils/emojis.json')
 
-export default class Cooldown extends Listener {
+module.exports = class Cooldown extends Listener {
     constructor() {
         super("missingPermissions", {
-            emitter: "cmdHandler",
+            emitter: "CommandHandler",
             event: "missingPermissions",
             category: "command"
         })
