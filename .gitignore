@@ -1,24 +1,3 @@
-# keys
-Config.ts
-Config.js.map
-Config.js
-
-# stupid node js stuff
-node_modules
-package-lock.json
-
-# the folder where ts compiles all stuff
-dist
-
-# Logs
-logs
-
-# just me being stupid and doing stuff
-testing.js
-testing.ts
-cache
-todo
-
 ## rewrite
 
 config.json
