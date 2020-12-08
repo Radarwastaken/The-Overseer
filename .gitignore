@@ -18,3 +18,9 @@ testing.js
 testing.ts
 cache
 todo
+
+## rewrite
+
+config.json
+node_modules
+package-lock.json
