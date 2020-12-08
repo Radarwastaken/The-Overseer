@@ -14,7 +14,7 @@ module.exports = class Cooldown extends Listener {
 
     exec(message, command, cooldown) {
         const embed = new MessageEmbed()
-        .setDescription(`${emojis.discord.Slowmode}${command.aliases[0]} ${message.author} wait \`${this.client.fn.cleanTime(cooldown) ? `${fn.cleanTime(cooldown)}` : `${cooldown}ms`}\` before using ${command.aliases[0]} Command again.`)
+        .setDescription(`${emojis.discord.Slowmode} ${message.author} wait \`${this.client.fn.cleanTime(cooldown) ? `${fn.cleanTime(cooldown)}` : `${cooldown}ms`}\` before using ${command.aliases[0]} Command again.`)
         return message.channel.send(embed)
     }
 }
