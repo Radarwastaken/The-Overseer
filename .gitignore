@@ -4,3 +4,6 @@ config.json
 node_modules
 package-lock.json
 src
+
+## this was needed
+test.js

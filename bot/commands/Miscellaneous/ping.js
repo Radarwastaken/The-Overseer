@@ -1,6 +1,5 @@
 const { Command } = require('discord-akairo')
 const { MessageEmbed } = require('discord.js')
-const { Message } = require('discord.js')
 
 module.exports = class Ping extends Command{
     constructor() {
