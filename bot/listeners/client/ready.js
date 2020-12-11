@@ -1,7 +1,5 @@
-const { Listener, Command } = require('discord-akairo')
-const { MessageEmbed } = require( 'discord.js')
+const { Listener } = require('discord-akairo')
 const fn = require('../../utils/functions')
-const emojis = require('../../utils/emojis.json')
 
 module.exports = class Cooldown extends Listener {
     constructor() {

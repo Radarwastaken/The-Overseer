@@ -1,5 +1,5 @@
 const VilcusClient = require('./structures/Client')
 
-const VilcusClientem = new VilcusClient()
+const client = new VilcusClient()
 
-VilcusClientem.start()
+client.start()

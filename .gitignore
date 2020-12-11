@@ -8,3 +8,7 @@ src
 ## this was needed
 
 test.js
+src
+
+## just for intellij to work
+jsconfig.json
