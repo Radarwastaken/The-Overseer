@@ -1,4 +1,4 @@
-const { Listener, Command } = require('discord-akairo')
+const { Listener } = require('discord-akairo')
 const { MessageEmbed } = require( 'discord.js')
 const fn = require('../../utils/functions')
 const emojis = require('../../utils/emojis.json')
