@@ -6,7 +6,7 @@ const client = new VilcusClient()
 const AutoPoster = require('topgg-autoposter')
 const config = require('./config.json')
 
-const poster = new AutoPoster(config.botlist.top, client)
+module.exports = poster = new AutoPoster(config.botlist.top, client)
 //Over
 
 client.start()

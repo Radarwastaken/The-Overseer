@@ -1,7 +1,7 @@
 const { Listener } = require('discord-akairo')
 const { MessageEmbed } = require('discord.js')
-const config = require('../../config.json')
 const emojis = require('../../utils/emojis.json')
+const config = require('../../config.json')
 
 module.exports = class CommandError extends Listener {
     constructor() {
@@ -32,8 +32,7 @@ module.exports = class CommandError extends Listener {
         .addField("Type:", "Command Handler (command side) error", true)
         .addField(`\u200b`, `\u200b`, true)
 
-        const errchannel = message.client.channels.cache.get(errorlogid)
-        if (!config.bot.ownerid.includes(message.author.id)) {
+        if (!this.client.isOwner(message.author)) {
             try {
                 message.channel.send(embedtoo)
             } catch {
@@ -46,6 +45,8 @@ module.exports = class CommandError extends Listener {
                 //HaHa MiSsInG PeRmS
             }
         }
+
+        const errchannel = message.client.channels.cache.get(config.channels.error)
         return errchannel.send(embed)
     }
 }

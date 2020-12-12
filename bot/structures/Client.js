@@ -4,7 +4,7 @@ const config = require('./../config.json')
 class VilicusClient extends ak.AkairoClient {
     constructor(Config) {
         super({
-            ownerID: config.bot.ownerids,
+            ownerID: config.bot.ownerids
         })
         this.ListenerHandler = new ak.ListenerHandler(this, {
             directory: './listeners'

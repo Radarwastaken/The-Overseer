@@ -25,7 +25,7 @@ module.exports = class Emojify extends Command{
 
     async exec(message, { stuff }) {
 
-        if (!stuff) return message.channel.send(`You need to put in some actual text there in order to me 🇪 🇲 🇴 🇯 🇮 🇫 🇾 it.`)
+        if (!stuff) return message.channel.send(`You need to put in some actual text there in order for me to 🇪 🇲 🇴 🇯 🇮 🇫 🇾 it.`)
 
         function Emojify(text) {
             for(let i = 0; i < text.length; i++) {
