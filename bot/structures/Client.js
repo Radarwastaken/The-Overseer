@@ -20,7 +20,7 @@ class VilicusClient extends ak.AkairoClient {
             prompt: {
                 modifyStart: (_, str) => `${str}\n\nType \`stop\` to stop the command.`,
                 retry: `Try again...`,
-                timeout: `Alright then Ignore me even i don't have enough free time to keep waiting for you.`,
+                timeout: `Looks like you decided to Ignore me. I can't wait for you all day long can I?`,
                 ended: `You failed too many times, no more trying again now.`,
                 cancel: `Okay stopped the command.`,
                 cancelWord: 'stop',
