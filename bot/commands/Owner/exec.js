@@ -10,7 +10,7 @@ module.exports = class Exec extends Command{
             editable: false,
             typing: true,
             category: "owner",
-            clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "ADD_REACTIONS"],
+            clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "ADD_REACTIONS", 'USE_EXTERNAL_EMOJIS'],
             description: {
                 content: "Execute stuff directly onto the terminal",
                 usage: "< code >",

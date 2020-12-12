@@ -4,12 +4,12 @@ const dmd = require('discord-md-tags')
 
 module.exports = class Eval extends Command {
     constructor() {
-        super('eval', {
-            aliases: ['eval'],
+        super('asynceval', {
+            aliases: ['asynceval'],
             typing: true,
             clientPermissions: ['SEND_MESSAGES'],
             description: {
-                content: 'Evaluate some code',
+                content: 'Basically eval command but with an async function so i can use await',
                 usage: '< code >'
             },
             ownerOnly: true,
@@ -18,7 +18,7 @@ module.exports = class Eval extends Command {
                     id: 'code',
                     match: 'content',
                     prompt: {
-                        start: "What should i evaluate?",
+                        start: "What to evaluate?",
                         time: 4.5e4
                     }
                 }
@@ -29,7 +29,7 @@ module.exports = class Eval extends Command {
         
         try {
             let t1 = new Date()
-            let evalled = await eval(code)
+            let evalled = await eval("(async () => {" + code + "})()")
             let t2 = new Date()
             let tt = t2 - t1
             return message.channel.send(`*Evaluated in ${tt}ms*\n${dmd.codeblock('js') `${evalled}` }`)
