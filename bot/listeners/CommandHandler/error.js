@@ -23,7 +23,7 @@ export default class clientError extends Listener {
         .setFooter(`I have already logged it!`)
 
         const embed = new MessageEmbed()
-        .setAuthor(`Error:`)
+        .setTitle(`**${emojis.basic.error}Error:**`)
         .setDescription(`\`\`\`js\n${error.toString().replace(tokenRegex, " - TOKEN - ")}\n\n\n${error.stack?.toString().replace(tokenRegex, " - TOKEN - ")}\`\`\``)
         .addField("Message Content:", `${message.content.replace(tokenRegex, "**TOKEN**")}`)
         .addField("Ran By:", `- ${message.author.tag}\n- ${message.author}\n- ${message.author.id}`, true)
