@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js')
 const config = require('../../config.json')
 const emojis = require('../../utils/emojis.json')
 
-export default class CommandError extends Listener {
+module.exports = class CommandError extends Listener {
     constructor() {
         super("commanderror", {
             emitter: "CommandHandler",

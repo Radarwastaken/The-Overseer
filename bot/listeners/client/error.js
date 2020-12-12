@@ -3,7 +3,7 @@ const { MessageEmbed } = require('discord.js')
 const config = require('../../config.json')
 const emojis = require('../../utils/emojis.json')
 
-export default class clientError extends Listener {
+module.exports = class clientError extends Listener {
     constructor() {
         super("clienterror", {
             emitter: "client",
